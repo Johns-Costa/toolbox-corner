@@ -1,24 +1,25 @@
-# views.py
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from website.models import Product
-from .models import BagItem
 from django.contrib.auth.decorators import login_required
 
 @login_required
 def add_to_bag(request, product_id):
-    product = Product.objects.get(id=product_id)
-    quantity = int(request.POST.get('quantity'))
+    product = get_object_or_404(Product, id=product_id)
+    quantity = int(request.POST.get('quantity', 1))
     bag = request.session.get('bag', {})
-    
-    if product_id in bag:
-        bag[product_id] += quantity
+
+    if str(product_id) in bag:
+        bag[str(product_id)] += quantity
     else:
-        bag[product_id] = quantity
-    
+        bag[str(product_id)] = quantity
+
+    if bag[str(product_id)] <= 0:
+        del bag[str(product_id)]
+
     request.session['bag'] = bag
-    messages.success(request, f'Added {quantity} {product.name} to your bag')
-    return redirect(reverse('product_detail', args=[product_id]))
+    messages.success(request, f'Updated {product.name} quantity in your bag')
+    return redirect('view_bag')
 
 @login_required
 def view_bag(request):
@@ -26,7 +27,7 @@ def view_bag(request):
     bag_items = []
     total = 0
     for product_id, quantity in bag.items():
-        product = Product.objects.get(id=product_id)
+        product = get_object_or_404(Product, id=product_id)
         item_total = product.price * quantity
         total += item_total
         bag_items.append({'product': product, 'quantity': quantity, 'item_total': item_total})
@@ -35,8 +36,15 @@ def view_bag(request):
 @login_required
 def remove_from_bag(request, product_id):
     bag = request.session.get('bag', {})
+    quantity = int(request.POST.get('quantity', 0))
     if str(product_id) in bag:
-        del bag[str(product_id)]
+        if quantity == 0:
+            del bag[str(product_id)]
+        else:
+            bag[str(product_id)] += quantity
+            if bag[str(product_id)] <= 0:
+                del bag[str(product_id)]
+
     request.session['bag'] = bag
-    messages.success(request, 'Item removed from your bag')
+    messages.success(request, 'Item quantity updated in your bag')
     return redirect('view_bag')

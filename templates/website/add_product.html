@@ -1,10 +1,45 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Add/Edit Product</h2>
-<form method="post">
+<h2>Add Product</h2>
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
+    
+    <div id="image-formset">
+        {{ image_formset.management_form }}
+        {% for image_form in image_formset %}
+            <div class="form-group">
+                {{ image_form.image.label_tag }}
+                {{ image_form.image }}
+            </div>
+        {% endfor %}
+    </div>
+    
+    <a href="#" id="add-image">Add Another Image</a>
+    <br>
+    <br>
     <button type="submit" class="btn btn-primary">Save</button>
 </form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let formIdx = {{ image_formset.total_form_count }};
+    document.getElementById('add-image').addEventListener('click', function(e) {
+        e.preventDefault();
+        const newForm = document.createElement('div');
+        newForm.classList.add('form-group');
+        newForm.innerHTML = `
+            <label for="id_image-${formIdx}-image">Image:</label>
+            <input type="file" name="image-${formIdx}-image" id="id_image-${formIdx}-image">
+        `;
+        document.getElementById('image-formset').appendChild(newForm);
+        formIdx++;
+        
+        // Update the total number of forms
+        document.getElementById('id_image-TOTAL_FORMS').value = formIdx;
+    });
+});
+</script>
+
 {% endblock %}

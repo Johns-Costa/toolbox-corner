@@ -40,8 +40,6 @@
 }
 
 
-
-
 #main-image {
     display: block;
     max-height: 400px;
@@ -61,4 +59,12 @@
 
 .more-image:hover {
     transform: scale(1.1);
+}
+
+div.image-form .clearable-file-input input[type="checkbox"] {
+    display: none;
+}
+
+div.image-form .clearable-file-input label {
+    display: none;
 }

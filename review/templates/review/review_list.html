@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<a class="btn btn-info btn-sm" href="{% url 'add_review' product.id %}"> --> Add Review <--</a>
+<br><br>
+<h2>Reviews for {{ product.name }}</h2>
+<br><br>
+<ul>
+    {% for review in reviews %}
+        <li>
+            {{ review.user.username }}: {{ review.stars }} stars
+            <p>{{ review.content }}</p>
+            {% if review.user == request.user %}
+                <a class="btn btn-outline-warning btn-sm" href="{% url 'edit_review' review.id %}">Edit</a>
+                <a class="btn btn-outline-danger btn-sm" href="{% url 'delete_review' review.id %}">Delete</a>
+            {% endif %}
+        </li>
+        <hr>
+    {% endfor %}
+</ul>
+{% endblock %}

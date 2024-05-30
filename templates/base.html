@@ -20,9 +20,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'view_bag' %}">Bag</a>
                 </li>
+                {% endif %} 
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'add_product' %}">Add Product</a>
                 </li>

@@ -17,7 +17,7 @@
                         {% for image in product.images.all %}
                             <div class="col-md-3">
                                 <a href="#" onclick="showImage('{{ image.image.url }}')">
-                                    <img class="img-thumbnail" src="{{ image.image.url }}" alt="{{ product.name }}">
+                                    <img class="img-thumbnail" src="{{ image.image.url }}" alt="{{ image.alt }}">
                                 </a>
                             </div>
                         {% endfor %}
@@ -28,11 +28,10 @@
         <div class="col-md-6">
             <div class="product-details-container mt-5">
                 <h2>{{ product.name }}</h2>
+                <p><i class="fa-solid fa-star fa-xl" style="color: #ffff00;"></i>  {{ average_rating|default:"No reviews yet" }}/5</p>
                 <p class="lead mb-3">${{ product.price }}</p>
                 <p>{{ product.description }}</p>
-                {% if user.is_staff %}
-                    <a class="btn btn-secondary mb-3" href="{% url 'edit_product' product.id %}">Edit Product</a>
-                {% endif %}
+                <a href="{% url 'review_list' product.id %}" class="btn btn-primary btn-sm">Reviews</a>
                 <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                     {% csrf_token %}
                     <div class="form-row">
@@ -58,9 +57,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-6">
                             <button type="submit" class="btn btn-primary">Add to Bag</button>
                         </div>
+                        {% if user.is_staff %}
+                        <a class="btn btn-secondary mb-3" href="{% url 'edit_product' product.id %}">Edit Product</a>
+                        {% endif %}
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>

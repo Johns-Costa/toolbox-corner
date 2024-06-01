@@ -3,8 +3,10 @@
 {% block content %}
 <br>
 <a class="btn btn-info btn-sm" href="{% url 'add_review' product.id %}"> --> Add Review <--</a>
-<br><br>
+<br>
+<br>
 <h2>Reviews for {{ product.name }}</h2>
+<p>Average Rating: {{ average_rating|default:"No reviews yet" }}/5</p>
 <br><br>
 <ul>
     {% for review in reviews %}

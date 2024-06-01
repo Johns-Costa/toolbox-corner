@@ -10,8 +10,8 @@
         {{ image_formset.management_form }}
         {% for image_form in image_formset %}
             <div class="form-group">
-                {{ image_form.image.label_tag }}
-                {{ image_form.image }}
+                {{ image_form.image.label_tag }} {{ image_form.image }}
+                {{ image_form.alt.label_tag }} {{ image_form.alt }}
             </div>
         {% endfor %}
     </div>

@@ -6,16 +6,29 @@ from .models import Product, ProductImage
 from .forms import ProductForm, ProductImageFormSet
 from django.conf import settings
 from django.urls import reverse
+from review.models import Review
+from django.db.models import Avg
+
+from django.db.models import Avg
+from django.shortcuts import render, get_object_or_404
+
+from django.db.models import Avg
+from django.shortcuts import render, get_object_or_404
 
 def home(request):
     products = Product.objects.all()
     product_images = {}
+
     for product in products:
         # Fetch the first image for each product
         first_image = product.images.first()
         # Add the product and its first image to the dictionary
         product_images[product.id] = first_image
-    # Pass MEDIA_URL to the context
+
+        # Calculate average rating for the product
+        average_rating = Review.objects.filter(product=product).aggregate(Avg('stars'))['stars__avg']
+        setattr(product, 'average_rating', average_rating if average_rating else "No reviews")
+
     context = {
         'products': products,
         'product_images': product_images,
@@ -29,11 +42,15 @@ def product_detail(request, product_id):
     
     # Fetch images associated with the product
     product_images = ProductImage.objects.filter(product=product)
+
+    # Calculate the average rating for the product
+    average_rating = Review.objects.filter(product=product).aggregate(Avg('stars'))['stars__avg']
     
     context = {
         'product': product,
         'product_images': product_images,
         'MEDIA_URL': settings.MEDIA_URL,
+        'average_rating': average_rating,
     }
     
     return render(request, 'website/product_detail.html', context)

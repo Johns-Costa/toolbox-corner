@@ -4,6 +4,7 @@ from django.http import HttpResponseForbidden
 from .models import Review
 from .forms import ReviewForm
 from website.models import Product
+from django.db.models import Avg
 
 # Create your views here.
 
@@ -50,4 +51,10 @@ def delete_review(request, review_id):
 def review_list(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     reviews = Review.objects.filter(product=product)
-    return render(request, 'review/review_list.html', {'reviews': reviews, 'product': product})
+    average_rating = reviews.aggregate(Avg('stars'))['stars__avg']
+    context = {
+        'product': product,
+        'reviews': reviews,
+        'average_rating': average_rating,
+    }
+    return render(request, 'review/review_list.html', context)

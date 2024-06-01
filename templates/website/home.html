@@ -1,9 +1,11 @@
+<!-- templates/website/home.html -->
+
 {% extends 'base.html' %}
 
 {% block content %}
 <div class="row">
     {% for product in products %}
-    <div class="col-md-4">
+    <div href="{% url 'product_detail' product.id %}" class="col-md-3 col-sm-6">
         <div class="card mb-4 shadow-sm">
             {% with product.images.first as product_image %}
                 {% if product_image %}
@@ -13,7 +15,8 @@
                 {% endif %}
             {% endwith %}
             <div class="card-body">
-                <h5 class="card-title">{{ product.name }}</h5>
+                <h5 class="card-title d-inline">{{ product.name }}   </h5>
+                <p class="d-inline"><i class="fa-solid fa-star" style="color: #ffff00;"> </i>{{ product.average_rating }}/5</p>
                 <p class="card-text">{{ product.description }}</p>
                 <p class="card-text">Price: ${{ product.price }}</p>
                 <div class="d-flex justify-content-between align-items-center">

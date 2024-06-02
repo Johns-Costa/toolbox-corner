@@ -2,22 +2,18 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
-from .models import Product, ProductImage 
+from .models import Product, ProductImage, Category
 from .forms import ProductForm, ProductImageFormSet
 from django.conf import settings
 from django.urls import reverse
 from review.models import Review
 from django.db.models import Avg
 
-from django.db.models import Avg
-from django.shortcuts import render, get_object_or_404
-
-from django.db.models import Avg
-from django.shortcuts import render, get_object_or_404
 
 def home(request):
     products = Product.objects.all()
     product_images = {}
+    categories = Category.objects.all()
 
     for product in products:
         # Fetch the first image for each product
@@ -30,11 +26,25 @@ def home(request):
         setattr(product, 'average_rating', average_rating if average_rating else "No reviews")
 
     context = {
+        'categories': categories,
         'products': products,
         'product_images': product_images,
         'MEDIA_URL': settings.MEDIA_URL,
     }
     return render(request, 'website/home.html', context)
+
+def category_products(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    products = Product.objects.filter(category=category)
+    product_images = {product.id: product.images.first() for product in products}
+
+    context = {
+        'category': category,
+        'products': products,
+        'product_images': product_images,
+        'MEDIA_URL': settings.MEDIA_URL,
+    }
+    return render(request, 'website/category_products.html', context)
 
 def product_detail(request, product_id):
     # Fetch the product object

@@ -1,11 +1,11 @@
 from django import forms
-from .models import Product, ProductImage
+from .models import Product, ProductImage, Category
 from django.forms import modelformset_factory
 
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['name', 'description', 'price']
+        fields = ['name', 'description', 'price', 'category']
 
 class ProductImageForm(forms.ModelForm):
     class Meta:

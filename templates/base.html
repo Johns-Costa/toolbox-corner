@@ -31,6 +31,10 @@
                 <li class="nav-item">
                     <a class="nav-link font-weight-bold" href="{% url 'contact' %}">Contact Us</a>
                 </li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                {% for category in categories %}
+                    <li><a href="{% url 'category_products' category.id %}">{{ category.name }}</a></li>
+                {% endfor %}
                 {% comment %} {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account' %}">Account</a>

@@ -32,8 +32,8 @@
                 <p class="lead mb-3">${{ product.price }}</p>
                 <p>{{ product.description }}</p>
                 <a href="{% url 'review_list' product.id %}" class="btn btn-primary btn-sm">Reviews</a>
-                <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
-                    {% csrf_token %}
+                {% comment %} <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+                    {% csrf_token %} {% endcomment %}
                     <div class="form-row">
                         <div class="col-12">
                             <p class="mt-3"><strong>Quantity:</strong></p>

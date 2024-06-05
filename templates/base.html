@@ -40,13 +40,13 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
-                            <div class="text-center">
-                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                        <a class="nav-link" href="{% url 'view_bag' %}">
+                            <div>
+                                <div>Bag</div>
                                 <p class="my-0">
                                     {% if grand_total %}
                                         ${{ grand_total|floatformat:2 }}
@@ -101,6 +101,11 @@
             </div>
         </div>
     </nav>
+            <div id="delivery-banner" class="row text-center">
+            <div class="col bg-black text-white">
+                <h4 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>                
+            </div>            
+        </div>
 
     <!-- Messages display -->
     {% if messages %}

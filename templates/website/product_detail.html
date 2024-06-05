@@ -17,7 +17,7 @@
                         {% for image in product.images.all %}
                             <div class="col-md-3">
                                 <a href="#" onclick="showImage('{{ image.image.url }}')">
-                                    <img class="img-thumbnail" src="{{ image.image.url }}" alt="{{ image.alt }}">
+                                    <img class="img-thumbnail more-image" src="{{ image.image.url }}" alt="{{ image.alt }}">
                                 </a>
                             </div>
                         {% endfor %}

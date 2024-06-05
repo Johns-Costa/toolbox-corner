@@ -68,3 +68,44 @@ div.image-form .clearable-file-input input[type="checkbox"] {
 div.image-form .clearable-file-input label {
     display: none;
 }
+
+/* Product card */
+
+.card-img-top-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-img-top {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body .btn-group {
+    margin-top: auto;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    transition-duration: 5s;
+}
+
+.card-link .card {
+    transition: transform 0.3s;
+}
+
+.card-link:hover .card {
+    border-width: 2px;
+    transform: scale(1.01);
+}

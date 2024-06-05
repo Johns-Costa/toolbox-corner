@@ -3,27 +3,26 @@
 {% block content %}
 <div class="row">
     {% for product in products %}
-    <div href="{% url 'product_detail' product.id %}" class="col-md-3 col-sm-6">
-        <div class="card mb-4 shadow-sm">
-            {% with product.images.first as product_image %}
-                {% if product_image %}
-                <img class="card-img-top" src="{{ product_image.image.url }}" alt="{{ product.name }}">
-                {% else %}
-                <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                {% endif %}
-            {% endwith %}
-            <div class="card-body">
-                <h5 class="card-title d-inline">{{ product.name }}   </h5>
-                <p class="d-inline"><i class="fa-solid fa-star" style="color: #ffff00;"> </i>{{ product.average_rating }}/5</p>
-                <p class="card-text">{{ product.description }}</p>
-                <p class="card-text">Price: ${{ product.price }}</p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                        <a href="{% url 'product_detail' product.id %}" class="btn btn-sm btn-outline-secondary">View</a>
-                    </div>
+    <div class="col-md-3 col-sm-6 mb-4">
+        <a href="{% url 'product_detail' product.id %}" class="card-link">
+            <div class="card h-100 shadow-sm">
+                <div class="card-img-top-container">
+                    {% with product.images.first as product_image %}
+                        {% if product_image %}
+                        <img class="card-img-top" src="{{ product_image.image.url }}" alt="{{ product.name }}">
+                        {% else %}
+                        <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="d-inline"><i class="fa-solid fa-star" style="color: #ffff00;"></i>{{ product.average_rating }}/5</p>
+                    <p class="card-text">{{ product.description }}</p>
+                    <p class="card-text mt-auto">Price: ${{ product.price }}</p>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
     {% endfor %}
 </div>

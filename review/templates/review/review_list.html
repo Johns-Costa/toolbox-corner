@@ -6,19 +6,24 @@
 <br>
 <br>
 <h2>Reviews for {{ product.name }}</h2>
-<p>Average Rating: {{ average_rating|default:"No reviews yet" }}/5</p>
+<p>Average Rating: {{ average_rating|default:"No reviews" }}/5</p>
 <br><br>
-<ul>
-    {% for review in reviews %}
-        <li>
-            {{ review.user.username }}: {{ review.stars }} stars
-            <p>{{ review.content }}</p>
-            {% if review.user == request.user %}
-                <a class="btn btn-outline-warning btn-sm" href="{% url 'edit_review' review.id %}">Edit</a>
-                <a class="btn btn-outline-danger btn-sm" href="{% url 'delete_review' review.id %}">Delete</a>
-            {% endif %}
-        </li>
-        <hr>
-    {% endfor %}
-</ul>
+{% if reviews %}
+    <ul>
+        {% for review in reviews %}
+            <li>
+                {{ review.user.username }}: {{ review.stars }} stars
+                <p>{{ review.content }}</p>
+                {% if review.user == request.user %}
+                    <a class="btn btn-outline-warning btn-sm" href="{% url 'edit_review' review.id %}">Edit</a>
+                    <a class="btn btn-outline-danger btn-sm" href="{% url 'delete_review' review.id %}">Delete</a>
+
+                {% endif %}
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class="logo-font my-1">No Reviews yet. Be the first to <a href="{% url 'add_review' product.id %}"> Add a Review</a>!</p>
+{% endif %}
 {% endblock %}

@@ -43,7 +43,8 @@
 #main-image {
     display: block;
     max-height: 400px;
-    height: auto;
+    height: 100%;
+    width: auto;
     margin-left: auto;
     margin-right: auto;
     padding: 15px;
@@ -81,6 +82,8 @@ div.image-form .clearable-file-input label {
 }
 
 .card-img-top {
+    height: 100%;
+    width: auto;
     max-height: 100%;
     max-width: 100%;
     object-fit: cover;
@@ -108,4 +111,11 @@ div.image-form .clearable-file-input label {
 .card-link:hover .card {
     border-width: 2px;
     transform: scale(1.01);
+}
+
+/* Shopping Bag */
+
+.small-image {
+    width: 50%;
+    height: auto;
 }

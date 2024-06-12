@@ -15,6 +15,7 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=400)
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    has_sizes = models.BooleanField(default=False, null=True, blank=True)
     created_by = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)

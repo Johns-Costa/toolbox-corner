@@ -48,7 +48,7 @@ def category_products(request, category_id):
 
 def product_detail(request, product_id):
     # Fetch the product object
-    product = get_object_or_404(Product, id=product_id)
+    product = get_object_or_404(Product, pk=product_id)
     
     # Fetch images associated with the product
     product_images = ProductImage.objects.filter(product=product)

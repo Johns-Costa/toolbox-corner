@@ -40,13 +40,11 @@
                     <div class="row">
                         <div class="col-2 mb-1">
                             <a href="{% url 'product_detail' item.product.id %}">
-                                {% with item.product.images.first as product_image %}
-                                    {% if product_image %}
-                                        <img class="img-fluid rounded" src="{{ product_image.image.url }}">
-                                    {% else %}
-                                        <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png">
-                                    {% endif %}
-                                {% endwith %}
+                                {% if item.product.image %}
+                                    <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                {% else %}
+                                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                {% endif %}
                             </a>
                         </div>
                         <div class="col-7">
@@ -136,4 +134,11 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}

@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['toolbox-corner-c9446b25bd36.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['toolbox-corner-c9446b25bd36.herokuapp.com', 'localhost', '127.0.0.1', 'qpv8w1c3-8000.euw.devtunnels.ms']
 
 
 # Application definition

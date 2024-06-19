@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['toolbox-corner-c9446b25bd36.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['toolbox-corner-c9446b25bd36.herokuapp.com', '8000-johnscosta-toolboxcorne-yuu6h8j4355.ws.codeinstitute-ide.net','localhost', '127.0.0.1']
 
 
 # Application definition
@@ -70,7 +70,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'allauth.account.middleware.AccountMiddleware'
+    
 ]
 
 ROOT_URLCONF = 'toolboxcorner.urls'
@@ -111,7 +111,7 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-SITE_ID = 1
+SITE_ID = 2
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True

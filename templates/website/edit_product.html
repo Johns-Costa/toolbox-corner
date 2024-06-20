@@ -1,25 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Edit Product</h2>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-
-    <h3>Product Images</h3>
-    {{ image_formset.management_form }}
-    <div id="image-formset">
-        {% for form in image_formset %}
-            <div class="image-form">
-                {{ form.as_p }}
-                <hr>
-            </div>
-        {% endfor %}
+<div class="container">
+    <div class="row justify-content-left">
+        <div class="col-lg-6">
+            <h2>Edit Product</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <br>
+                <div id="image-formset">
+                    {{ image_formset.management_form }}
+                    {% for form in image_formset %}
+                        <div class="image-form">
+                            {{ form|crispy }}
+                            <hr>
+                        </div>
+                    {% endfor %}
+                </div>
+                <a href="#" id="add-image">Add Another Image</a>
+                <br><br>
+                <button type="submit" class="btn btn-primary mt-3">Save</button>
+            </form>
+        </div>
     </div>
-    <a href="#" id="add-image">Add Another Image</a>
-    <br><br>
-    <button type="submit" class="btn btn-primary mt-3">Save</button>
-</form>
+</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {

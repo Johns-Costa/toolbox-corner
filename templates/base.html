@@ -97,22 +97,27 @@
                             {% endfor %}
                         </ul>
                     </li>
+                </ul>
                 <form class="d-flex" method="GET" action="{% url 'search_results' %}">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
-                            <button type="submit">
-                                <span>
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                </span>
-                            </button>
+                    <button class="btn btn-outline-black" type="submit">
+                        <span class="icon">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </button>
                 </form>
             </div>
         </div>
     </nav>
-            <div id="delivery-banner" class="row text-center">
-            <div class="col bg-black text-white">
-                <h4 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>                
-            </div>            
-        </div>
+    <div id="delivery-banner" class="row text-center">
+        <div class="col banner text-white">
+            {% if user.is_authenticated %}
+                <h4 class="logo-font my-1">Hi {{ user.username }}! Get Free delivery on orders over ${{ free_delivery_threshold }}!</h4>
+            {% else %}
+                <h4 class="logo-font my-1">Get Free delivery on orders over ${{ free_delivery_threshold }}!</h4>
+            {% endif %}
+        </div>            
+    </div>
 
     <!-- Messages display -->
     {% if messages %}

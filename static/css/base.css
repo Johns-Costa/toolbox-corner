@@ -1,15 +1,21 @@
 /* Navbar styling */
 .navbar {
-    background-color: #f8f9fa;
+    background-color: #F0F0F0;
     border-bottom: 1px solid #dee2e6;
 }
 
 .navbar-brand {
     font-weight: bold;
+    color: #003366;
 }
 
 .navbar-nav .nav-item {
     margin-left: 10px;
+}
+
+.banner {
+    background-color: #003366;
+    color:#F0F0F0;
 }
 
 /* Card styling */
@@ -39,6 +45,23 @@
     border-color: #0056b3;
 }
 
+.btn-blue {
+    background: #003366;
+    color: #F0F0F0;
+}
+
+.btn-outline-blue {
+    background: #F0F0F0;
+    color: #003366 !important;
+    border: 1px solid #003366;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: #003366;
+    color: #F0F0F0 !important;
+}
 
 #main-image {
     display: block;

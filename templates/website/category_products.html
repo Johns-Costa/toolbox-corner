@@ -3,9 +3,17 @@
 
 {% block content %}
 <h2>Products in {{ category.name }}</h2>
+<br>
 <div class="row">
-    {% for product in products %}
-        {% include 'website/product_card.html' %}
-    {% endfor %}
+    {% if products %}
+        {% for product in products %}
+            {% include 'website/product_card.html' %}
+        {% endfor %}
+    {% else %}
+        <div class="col-12">
+            <p>No products in this category at the moment.</p>
+            <a href="{% url 'home' %}" class="btn btn-blue">Back to Shop</a>
+        </div>
+    {% endif %}
 </div>
 {% endblock %}

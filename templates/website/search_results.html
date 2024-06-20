@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 
 {% block content %}
 <div class="container mt-5">
@@ -6,30 +7,7 @@
     {% if results %}
         <div class="row">
             {% for product in results %}
-            <div class="col-md-3 col-sm-6 mb-4">
-                <a href="{% url 'product_detail' product.id %}" class="card-link">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-img-top-container">
-                            {% with product.images.first as product_image %}
-                                {% if product_image %}
-                                <img class="card-img-top" src="{{ product_image.image.url }}" alt="{{ product.name }}">
-                                {% else %}
-                                <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                {% endif %}
-                            {% endwith %}
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">{{ product.name }}</h5>
-                            <p class="card-text">{{ product.description|truncatewords:20 }}</p>
-                            <p class="card-text mt-auto">Price: ${{ product.price }}</p>
-                            <p class="card-text mt-auto">
-                                <i class="fa-solid fa-star" style="color: #ffff00;"></i>
-                                {{ product.average_rating }}/5
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                {% include 'website/product_card.html' %}
             {% endfor %}
         </div>
     {% else %}

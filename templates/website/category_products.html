@@ -1,29 +1,11 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 
 {% block content %}
 <h2>Products in {{ category.name }}</h2>
 <div class="row">
     {% for product in products %}
-    <a href="{% url 'product_detail' product.id %}" class="col-md-3 col-sm-6 card-link">
-        <div class="card mb-4 shadow-sm">
-            <div class="card-img-top-container">
-                {% with product.images.first as product_image %}
-                    {% if product_image %}
-                        <img class="card-img-top" src="{{ product_image.image.url }}" alt="{{ product.name }}">
-                    {% else %}
-                        <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                    {% endif %}
-                {% endwith %}
-            </div>
-            <div class="card-body">
-                <h5 class="card-title d-inline">{{ product.name }}</h5>
-                <p class="d-inline"><i class="fa-solid fa-star" style="color: #ffff00;"></i> {{ product.average_rating|default:"No reviews" }}/5</p>
-                <p class="card-text">{{ product.description }}</p>
-                <p class="card-text">Price: ${{ product.price }}</p>
-            </div>
-        </div>
-    </a>
+        {% include 'website/product_card.html' %}
     {% endfor %}
 </div>
 {% endblock %}
-

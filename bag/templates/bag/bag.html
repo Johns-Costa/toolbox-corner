@@ -15,9 +15,7 @@
     <div class="container mb-2">
         <div class="row">
             <div class="col">
-                <hr>
                 <h2 class="logo-font mb-4">Shopping Bag</h2>
-                <hr>
             </div>
         </div>
 
@@ -63,7 +61,7 @@
                                                         <button class="decrement-qty btn btn-sm btn-blue" 
                                                             data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                                             <span>
-                                                                <i class="fas fa-minus fa-sm"></i>
+                                                                <i class="fa-solid fa-minus"></i>
                                                             </span>
                                                         </button>
                                                     </div>
@@ -75,7 +73,7 @@
                                                         <button class="increment-qty btn btn-sm btn-blue"
                                                             data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                                             <span>
-                                                                <i class="fas fa-plus fa-sm"></i>
+                                                                <i class="fa-solid fa-plus"></i>
                                                             </span>
                                                         </button>
                                                     </div>
@@ -85,8 +83,8 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <a class="update-link text-info"><small>Update</small></a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+                                        <a class="btn text-info update-link"><small>Update</small></a>
+                                        <a class="btn text-danger float-right remove-item" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>

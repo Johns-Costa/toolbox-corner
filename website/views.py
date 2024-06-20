@@ -36,7 +36,16 @@ def home(request):
 def category_products(request, category_id):
     category = get_object_or_404(Category, id=category_id)
     products = Product.objects.filter(category=category)
-    product_images = {product.id: product.images.first() for product in products}
+    product_images = {}
+    
+    for product in products:
+        # Fetch the first image for each product
+        first_image = product.images.first()
+        product_images[product.id] = first_image
+        
+        # Calculate average rating for the product
+        average_rating = Review.objects.filter(product=product).aggregate(Avg('stars'))['stars__avg']
+        setattr(product, 'average_rating', average_rating if average_rating else "No reviews")
 
     context = {
         'category': category,
@@ -45,6 +54,7 @@ def category_products(request, category_id):
         'MEDIA_URL': settings.MEDIA_URL,
     }
     return render(request, 'website/category_products.html', context)
+
 
 def product_detail(request, product_id):
     # Fetch the product object
@@ -68,9 +78,21 @@ def product_detail(request, product_id):
 def search_results(request):
     query = request.GET.get('q')
     results = Product.objects.filter(name__icontains=query) | Product.objects.filter(description__icontains=query)
+    product_images = {}
+    
+    for product in results:
+        # Fetch the first image for each product
+        first_image = product.images.first()
+        product_images[product.id] = first_image
+        
+        # Calculate average rating for the product
+        average_rating = Review.objects.filter(product=product).aggregate(Avg('stars'))['stars__avg']
+        setattr(product, 'average_rating', average_rating if average_rating else "No reviews")
+
     context = {
         'query': query,
         'results': results,
+        'product_images': product_images,
         'MEDIA_URL': settings.MEDIA_URL,
     }
     return render(request, 'website/search_results.html', context)

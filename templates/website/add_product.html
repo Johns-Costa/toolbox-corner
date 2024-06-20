@@ -35,8 +35,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const newForm = document.createElement('div');
         newForm.classList.add('form-group');
         newForm.innerHTML = `
-            <label for="id_image-${formIdx}-image">Image:</label>
+            <hr>
+            <div><label for="id_image-${formIdx}-image">Image*</label></div>
             <input type="file" name="image-${formIdx}-image" id="id_image-${formIdx}-image">
+            <div><label for="id_image-${formIdx}-alt">Alt</label></div>
+            <input type="text" name="image-${formIdx}-alt" id="id_image-${formIdx}-alt" class="form-control">
         `;
         document.getElementById('image-formset').appendChild(newForm);
         formIdx++;

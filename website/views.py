@@ -10,6 +10,10 @@ from review.models import Review
 from django.db.models import Avg
 
 
+
+def welcome(request):
+    return render(request, 'website/welcome.html')
+
 def home(request):
     products = Product.objects.all()
     product_images = {}

@@ -1,7 +1,19 @@
+/* ------Base */
+
+header{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: white;
+    width: 100%;
+
+    
 /* Navbar styling */
 .navbar {
-    background-color: #F0F0F0;
-    border-bottom: 1px solid #dee2e6;
+    background-color: #F0F0F0 !important;
+    border-bottom: 1px solid #dee2e6 !important;
 }
 
 .navbar-brand {
@@ -94,6 +106,37 @@ div.image-form .clearable-file-input label {
     display: none;
 }
 
+/* Welcome */
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.jumbotron {
+    background-color: #F0F0F0;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6 !important;
+}
+
+.jumbotron h1 {
+    font-size: 3rem;
+}
+
+.jumbotron p {
+    font-size: 1.25rem;
+}
+
+.jumbotron .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+    border-radius: 0.3rem;
+    margin-top: 1rem;
+}
+
+
 /* Product card */
 
 .card-img-top-container {
@@ -151,6 +194,8 @@ footer {
     margin: 0;
     position: sticky;
     padding: 20px 0;
+    width: 100% !important;
+    height: 100% !important;
 
 }
 

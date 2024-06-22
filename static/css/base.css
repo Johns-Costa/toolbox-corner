@@ -130,7 +130,7 @@ div.image-form .clearable-file-input label {
 }
 
 .jumbotron h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 .jumbotron p {
@@ -252,5 +252,21 @@ footer p a {
     .small-image {
         width: 100%;
         height: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .jumbotron h1 {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .jumbotron p.lead {
+        font-size: 1rem;
+    }
+
+    .jumbotron .btn {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
     }
 }

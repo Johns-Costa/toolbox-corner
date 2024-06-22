@@ -2,7 +2,6 @@ from django.db import models
 from django.conf import settings
 from website.models import Product 
 
-# Create your models here.
 
 class Review(models.Model):
     STAR_CHOICES = [(i, str(i)) for i in range(6)]

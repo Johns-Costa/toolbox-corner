@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /account/
+Disallow: /bag/
+Sitemap: https://toolbox-corner-c9446b25bd36.herokuapp.com/sitemap.xml

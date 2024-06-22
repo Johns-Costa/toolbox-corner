@@ -38,11 +38,11 @@
                     <div class="row">
                         <div class="col-2 mb-1">
                             <a href="{% url 'product_detail' item.product.id %}">
-                                {% with item.product.images.first as product_image %}
+                                {% with product.images.first as product_image %}
                                     {% if product_image %}
-                                        <img class="img-fluid rounded" src="{{ product_image.image.url }}">
+                                    <img class="card-img-top" src="{{ product_image.image.url }}" alt="{{ image.alt }}">
                                     {% else %}
-                                        <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png">
+                                    <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="No Image Available">
                                     {% endif %}
                                 {% endwith %}
                             </a>

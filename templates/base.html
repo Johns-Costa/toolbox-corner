@@ -140,8 +140,44 @@
         {% endblock %}
     </div>
 
+<!--Footer-->
+
+<footer >
+    <div id="footer">
+      <ul class="social-networks">
+        <li>
+          <a href="https://facebook.com" target="_blank" rel="noopener"
+            aria-label="Visit our Facebook page (opens in a new tab)"><i class="fa-brands fa-facebook"></i></a>
+        </li>
+        <li>
+          <a href="https://twitter.com" target="_blank" rel="noopener"
+            aria-label="Visit our Twitter page (opens in a new tab)"><i class="fa-brands fa-x-twitter"></i></a>
+        </li>
+        <li>
+          <a href="https://youtube.com" target="_blank" rel="noopener"
+            aria-label="Visit our YouTube page (opens in a new tab)"><i class="fa-brands fa-youtube"></i></a>
+        </li>
+        <li>
+          <a href="https://instagram.com" target="_blank" rel="noopener"
+            aria-label="Visit our Instagram page (opens in a new tab)"><i class="fa-brands fa-instagram"></i></a>
+        </li>
+      </ul>
+      <p>
+        Copyright &copy;
+        <a href="https://github.com/Johns-Costa" target="_blank" rel="noopener noreferrer"
+          aria-label="Visit the desingner github page (opens in a new tab)">João Costa</a>
+        2024
+      </p>
+    </div>
+  </footer>
+
     {% block postloadjs %}
     {% endblock %}
-
+<script>
+    var footerResize = function() {
+        $('#footer').css('position', $("body").height() + $("#footer").innerHeight() > $(window).height() ? "inherit" : "fixed");
+    };
+    $(window).resize(footerResize).ready(footerResize);
+    </script>
 </body>
 </html>

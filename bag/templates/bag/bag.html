@@ -39,9 +39,9 @@
                                     <td class="p-3 w-25">
                                         {% with item.product.images.first as product_image %}
                                             {% if product_image %}
-                                                <img class="img-fluid rounded small-image" src="{{ product_image.image.url }}">
+                                                <img class="img-fluid rounded small-image" src="{{ product_image.image.url }}" alt="{{ image.alt }}">
                                             {% else %}
-                                                <img class="img-fluid rounded small-image" src="{{ MEDIA_URL }}noimage.png">
+                                                <img class="img-fluid rounded small-image" src="{{ MEDIA_URL }}noimage.png" alt="No Image Available">
                                             {% endif %}
                                         {% endwith %}
                                     </td>

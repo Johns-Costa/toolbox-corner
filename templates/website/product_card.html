@@ -1,13 +1,13 @@
 {% load custom_filters %}
-<div class="col-md-3 col-sm-6 mb-4">
+<div class="col-md-6 col-lg-3 mb-4">
     <a href="{% url 'product_detail' product.id %}" class="card-link">
         <div class="card h-100 shadow-sm">
             <div class="card-img-top-container">
                 {% with product.images.first as product_image %}
                     {% if product_image %}
-                    <img class="card-img-top" src="{{ product_image.image.url }}" alt="{{ product.name }}">
+                    <img class="card-img-top" src="{{ product_image.image.url }}" alt="{{ image.alt }}">
                     {% else %}
-                    <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="No Image Available">
                     {% endif %}
                 {% endwith %}
             </div>

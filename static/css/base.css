@@ -143,3 +143,61 @@ div.image-form .clearable-file-input label {
     width: 50%;
     height: auto;
 }
+
+/* -------- footer */
+
+footer {
+    background-color: #003366;
+    margin: 0;
+    position: sticky;
+    padding: 20px 0;
+
+}
+
+footer p {
+    background-color: #003366;
+    margin-top: auto;
+    text-align: center;
+    color: #F0F0F0;
+    font-size: 0.8rem;
+
+}
+
+
+footer p a {
+    color: #F0F0F0;
+}
+
+.social-networks {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+.social-networks>li {
+    display: inline;
+}
+
+.social-networks i {
+    font-size: 110%;
+    margin: 0;
+    padding: 1.5% 1.5%;
+    color: #F0F0F0;
+}
+
+/* For medium screens (tablets) */
+@media (max-width: 991.98px) {
+    .small-image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* For small screens (phones) */
+@media (max-width: 767.98px) {
+    .small-image {
+        width: 100%;
+        height: auto;
+    }
+}

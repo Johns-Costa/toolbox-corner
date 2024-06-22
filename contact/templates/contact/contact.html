@@ -1,10 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Contact Us</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Send</button>
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>Contact Us</h2>
+            <form method="post">
+                {% csrf_token %}
+                <fieldset class="rounded px-3 mb-5">
+                    {{ form.subject | as_crispy_field }}
+                    {{ form.content | as_crispy_field }}
+                    {{ form.email | as_crispy_field }}
+                </fieldset>
+                <button type="submit" class="btn btn-blue mt-2">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -363,8 +363,40 @@ GitHub Project Management was used to manage the project. If it hadn't been for 
 | lineitem_total| lineitem_total| DecimalField  | max_digits=6, decimal_places=2, null=False, blank=False, editable=False |
 
 ---
+
 ## Testing
 
 Please refer to the [TESTING.md](TESTING.md) file for all test-related documentation.
 
 ---
+
+## Deployment
+
+
+- The app was deployed to [Heroku](https://www.heroku.com/).
+- The database was deployed to [Neon](https://neon.tech/).
+- The app can be reached by the [link](https://toolbox-corner-c9446b25bd36.herokuapp.com/).
+
+Please refer to the [DEPLOYMENT.md](DEPLOYMENT.md) file for all deployment-related documentation.
+
+---
+
+## Credits
+
+- [GitHub](https://github.com/) for giving the idea of the project's design.
+- [Django](https://www.djangoproject.com/) for the framework.
+- [ElephantSQL](https://www.elephantsql.com/): for the free hosting of the database.
+- [Font awesome](https://fontawesome.com/): for the free access to icons.
+- [Heroku](https://www.heroku.com/): for the free hosting of the website.
+- [Postgresql](https://www.postgresql.org/): for providing a free database.
+
+- The footer was based on my [Thread and rope project](https://github.com/Johns-Costa/threadandrope).
+
+
+---
+
+## Acknowledgments
+
+
+- [Iuliia Konovalova](https://github.com/IuliiaKonovalova) my mentor, was of a great support. Helping me figure out and mature the idea for this project.
+- My wife Luciana for all the support and keeping the family together.

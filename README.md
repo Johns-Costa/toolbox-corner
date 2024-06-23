@@ -238,7 +238,133 @@ The Logo is in [Roboto](https://fonts.google.com/?query=roboto) font and the bod
 
 ### Wireframes
 
-  [Toolbox Wireframes](documentation/design/wowder_wireframes.pdf)
+  [Toolbox Wireframes](documentation/design/toolboxcorner_wireframes.pdf)
+
+---
+## Agile Methodology
+
+### GitHub Project Management
+
+  ![GitHub Project Management](documentation/agile/github_project_management.png)
+
+GitHub Project Management was used to manage the project. If it hadn't been for the GitHub project management, I wouldn't have been able to manage the development of the application. It helped me to prioritize the tasks and to keep track of my progress.
+
+![GitHub Project Management](documentation/agile/kanban.png)
+
+![GitHub Project Management](documentation/agile/tasks.png)
 
 ---
 
+## Information Architecture
+
+### Database
+
+* During the earliest stages of the project, the database was created using SQLite.
+* The database was then migrated to PostgreSQL using [Neon](https://neon.tech/).
+
+### Entity-Relationship Diagram
+
+![ERD](documentation/erd.png)
+
+### Data Modeling
+
+#### Category Model
+
+| Name          | Database Key  | Field Type    | Validation |
+| ------------- | ------------- | ------------- | ---------- |
+| name          | name          | CharField     | max_length=100 |
+
+#### Product Model
+
+| Name          | Database Key  | Field Type    | Validation |
+| ------------- | ------------- | ------------- | ---------- |
+| name          | name          | CharField     | max_length=100 |
+| description   | description   | TextField     | max_length=400 |
+| price         | price         | DecimalField  | max_digits=10, decimal_places=2 |
+| has_sizes     | has_sizes     | BooleanField  | default=False, null=True, blank=True |
+| created_by    | created_by    | ForeignKey    | User, null=True, blank=True, on_delete=models.SET_NULL |
+| created_at    | created_at    | DateTimeField | auto_now_add=True |
+| modified_at   | modified_at   | DateTimeField | auto_now_add=True |
+| category      | category      | ForeignKey    | Category, null=True, blank=True, on_delete=models.SET_NULL, related_name='products' |
+
+#### Product Image Model
+
+| Name          | Database Key  | Field Type    | Validation |
+| ------------- | ------------- | ------------- | ---------- |
+| product       | product       | ForeignKey    | Product, on_delete=models.CASCADE, related_name='images' |
+| image         | image         |CloudinaryField| image', default='placeholder' |
+| alt           | alt           | CharField     | max_length=50, blank=True, null=True |
+
+#### Review Model
+
+```python
+    STAR_CHOICES = [(i, str(i)) for i in range(6)]
+```
+
+| Name          | Database Key  | Field Type    | Validation |
+| ------------- | ------------- | ------------- | ---------- |
+| product       | product       | ForeignKey    | Product, on_delete=models.CASCADE |
+| user          | user          | ForeignKey    | settings.AUTH_USER_MODEL, on_delete=models.CASCADE |
+| content       | content       | TextField     | max_length=500, blank=True |
+| stars         | stars         | IntegerFiel   | choices=STAR_CHOICES |
+| created_at    | created_at    | DateTimeField | auto_now_add=True |
+| updated_at    | updated_at    | DateTimeField | auto_now=True |
+
+#### Contact Model
+
+```python
+       SUBJECT_CHOICES = [
+        ('problems', 'Problems'),
+        ('product_info', 'Product Information'),
+        ('general_info', 'General Information'),
+        ('work_with_us', 'Work with Us'),
+        ('other', 'Other'),
+
+    ]
+```
+
+| Name          | Database Key  | Field Type    | Validation |
+| ------------- | ------------- | ------------- | ---------- |
+| subject       | subject       | CharField     | max_length=50, choices=SUBJECT_CHOICES |
+| content       | content       | TextField     | validators=[MinLengthValidator(10), MaxLengthValidator(500)] |
+| email         | email         | EmailFiel     |  |
+| created_at    | created_at    | DateTimeField | default=timezone.now |
+
+#### Order Model
+
+| Name          | Database Key  | Field Type    | Validation |
+| ------------- | ------------- | ------------- | ---------- |
+| order_number  | order_number  | CharField     | max_length=32, null=False, editable=False |
+| full_name     | full_name     | CharField     | max_length=50, null=False, blank=False |
+| email         | email         | EmailField    | max_length=254, null=False, blank=False |
+| phone_number  | phone_number  | CharField     | max_length=20, null=False, blank=False|
+| country       | country       | CountryField  | blank_label='Country *', null=False, blank=False |
+| postcode      | postcode      | CharField     | max_length=20, null=False, blank=True |
+| town_or_city  | town_or_city  | CharField     | max_length=40, null=False, blank=False |
+| street_adress1| street_adress1| CharField     | max_length=80, null=False, blank=False |
+| street_adress2| street_adress2| CharField     | max_length=80, null=True, blank=True |
+| county        | county        | CharField     | max_length=80, null=True, blank=True |
+| date          | date          | DateTimeField | auto_now_add=True |
+| delivery_cost | delivery_cost | DecimalField  | max_digits=6, decimal_places=2, null=False, default=0 |
+| order_total   | order_total   | DecimalField  | max_digits=10, decimal_places=2, null=False, default=0 |
+| grand_total   | grand_total   | DecimalField  | max_digits=10, decimal_places=2, null=False, default=0 |
+| original_bag  | original_bag  | TextField     | null=False, blank=False, default='' |
+| stripe_pid    | stripe_pid    | CharField     | max_length=254, null=False, blank=False, default='' |
+
+
+#### Order Line Item Model
+
+| Name          | Database Key  | Field Type    | Validation |
+| ------------- | ------------- | ------------- | ---------- |
+| order         | order         | ForeignKey    | Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems' |
+| product       | product       | ForeignKey    | Product, null=False, blank=False, on_delete=models.CASCADE |
+| product_size  | product_size  | CharField     | max_length=2, null=True, blank=True |
+| quantity      | quantity      | IntergerField | null=False, blank=False, default=0|
+| lineitem_total| lineitem_total| DecimalField  | max_digits=6, decimal_places=2, null=False, blank=False, editable=False |
+
+---
+## Testing
+
+Please refer to the [TESTING.md](TESTING.md) file for all test-related documentation.
+
+---

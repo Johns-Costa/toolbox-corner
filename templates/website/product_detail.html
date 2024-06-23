@@ -11,7 +11,7 @@
                     <img id="main-image" class="card-img-top img-fluid  h-50" src="{{ product.images.first.image.url }}"
                         alt="{{ image.alt }}">
                     {% else %}
-                    <img id="main-image" class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                    <img id="main-image" class="card-img-top img-fluid" src="{% static 'images/noimage.png' %}"
                         alt="No Image Available">
                     {% endif %}
                 </div>

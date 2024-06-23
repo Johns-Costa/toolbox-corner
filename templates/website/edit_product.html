@@ -12,10 +12,10 @@
                 <div id="image-formset">
                     {{ image_formset.management_form }}
                     {% for form in image_formset %}
-                        <div class="image-form">
-                            {{ form|crispy }}
-                            <hr>
-                        </div>
+                    <div class="image-form">
+                        {{ form|crispy }}
+                        <hr>
+                    </div>
                     {% endfor %}
                 </div>
                 <button type="submit" class="btn btn-primary mt-3">Save</button>

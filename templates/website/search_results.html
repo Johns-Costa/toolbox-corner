@@ -6,13 +6,13 @@
     <h2>Search Results for "{{ query }}"</h2>
     <br>
     {% if results %}
-        <div class="row">
-            {% for product in results %}
-                {% include 'website/product_card.html' %}
-            {% endfor %}
-        </div>
+    <div class="row">
+        {% for product in results %}
+        {% include 'website/product_card.html' %}
+        {% endfor %}
+    </div>
     {% else %}
-        <p>No products found matching your query.</p>
+    <p>No products found matching your query.</p>
     {% endif %}
 </div>
 {% endblock %}

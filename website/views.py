@@ -9,12 +9,15 @@ from django.urls import reverse
 from review.models import Review
 from django.db.models import Avg
 
-
-
 def welcome(request):
+    """Render the welcome page."""
     return render(request, 'website/welcome.html')
 
 def home(request):
+    """
+    Display the home page with all products and their first images.
+    Also calculates the average rating for each product.
+    """
     products = Product.objects.all()
     product_images = {}
     categories = Category.objects.all()
@@ -22,7 +25,6 @@ def home(request):
     for product in products:
         # Fetch the first image for each product
         first_image = product.images.first()
-        # Add the product and its first image to the dictionary
         product_images[product.id] = first_image
 
         # Calculate average rating for the product
@@ -38,6 +40,9 @@ def home(request):
     return render(request, 'website/home.html', context)
 
 def category_products(request, category_id):
+    """
+    Display products filtered by a specific category, their images, and average ratings.
+    """
     category = get_object_or_404(Category, id=category_id)
     products = Product.objects.filter(category=category)
     product_images = {}
@@ -59,9 +64,10 @@ def category_products(request, category_id):
     }
     return render(request, 'website/category_products.html', context)
 
-
 def product_detail(request, product_id):
-    # Fetch the product object
+    """
+    Display detailed information about a specific product, including images and average ratings.
+    """
     product = get_object_or_404(Product, pk=product_id)
     
     # Fetch images associated with the product
@@ -80,6 +86,9 @@ def product_detail(request, product_id):
     return render(request, 'website/product_detail.html', context)
 
 def search_results(request):
+    """
+    Display products matching the search query, their images, and average ratings.
+    """
     query = request.GET.get('q')
     results = Product.objects.filter(name__icontains=query) | Product.objects.filter(description__icontains=query)
     product_images = {}
@@ -103,6 +112,10 @@ def search_results(request):
 
 @staff_member_required
 def add_product(request):
+    """
+    Allows staff members to add new products and upload images.
+    Handles both GET (display form) and POST (process form submission) requests.
+    """
     if request.method == 'POST':
         form = ProductForm(request.POST)
         image_formset = ProductImageFormSet(request.POST, request.FILES, queryset=ProductImage.objects.none(), prefix='image')
@@ -122,6 +135,10 @@ def add_product(request):
 
 @staff_member_required
 def edit_product(request, product_id):
+    """
+    Allows staff members to edit existing products and manage associated images.
+    Handles both GET (display form) and POST (process form submission) requests.
+    """
     product = get_object_or_404(Product, id=product_id)
 
     if request.method == 'POST':
@@ -156,6 +173,10 @@ def edit_product(request, product_id):
 
 @staff_member_required
 def delete_product(request, product_id):
+    """
+    Allows staff members to delete products.
+    Handles both GET (display confirmation) and POST (process deletion) requests.
+    """
     product = get_object_or_404(Product, id=product_id)
     if request.method == 'POST':
         product.delete()
@@ -164,5 +185,9 @@ def delete_product(request, product_id):
 
 @login_required
 def order_product(request, product_id):
+    """
+    Placeholder for handling product orders.
+    Requires implementation of order logic.
+    """
     # Logic to handle ordering products
     return redirect('home')

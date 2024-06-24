@@ -10,11 +10,13 @@ from website.models import Product
 from bag.contexts import bag_contents
 
 import stripe
-
 import json
 
 @require_POST
 def cache_checkout_data(request):
+    """
+    Cache checkout data to associate with Stripe PaymentIntent.
+    """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -25,8 +27,7 @@ def cache_checkout_data(request):
         })
         return HttpResponse(status=200)
     except Exception as e:
-        messages.error(request, 'Sorry, your payment cannot be \
-            processed right now. Please try again later.')
+        messages.error(request, 'Sorry, your payment cannot be processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
 
 
@@ -34,6 +35,9 @@ def cache_checkout_data(request):
 logger = logging.getLogger(__name__)
 
 def checkout(request):
+    """
+    Handle checkout process.
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     intent = None  # Initialize intent to avoid UnboundLocalError
@@ -153,7 +157,7 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """
-    Handle successful checkouts
+    Handle successful checkouts.
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)

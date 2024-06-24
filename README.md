@@ -242,7 +242,7 @@ The Logo is in [Roboto](https://fonts.google.com/?query=roboto) font and the bod
 
 ### Wireframes
 
-  [Toolbox Wireframes](documentation/design/toolboxcorner_wireframes.pdf)
+  ![Toolbox Wireframes](documentation/design/toolboxcorner_wireframes.png)
 
 ---
 ## Agile Methodology

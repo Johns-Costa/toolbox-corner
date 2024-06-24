@@ -30,7 +30,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['toolbox-corner-c9446b25bd36.herokuapp.com', '8000-johnscosta-toolboxcorne-yuu6h8j4355.ws.codeinstitute-ide.net','localhost', '127.0.0.1']
 

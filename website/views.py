@@ -9,9 +9,11 @@ from django.urls import reverse
 from review.models import Review
 from django.db.models import Avg
 
+
 def welcome(request):
     """Render the welcome page."""
     return render(request, 'website/welcome.html')
+
 
 def home(request):
     """
@@ -28,8 +30,14 @@ def home(request):
         product_images[product.id] = first_image
 
         # Calculate average rating for the product
-        average_rating = Review.objects.filter(product=product).aggregate(Avg('stars'))['stars__avg']
-        setattr(product, 'average_rating', average_rating if average_rating else "No reviews")
+        average_rating = (
+            Review.objects.filter(product=product)
+            .aggregate(Avg('stars'))['stars__avg']
+        )
+        setattr(
+            product, 'average_rating',
+            average_rating if average_rating else "No reviews"
+        )
 
     context = {
         'categories': categories,
@@ -39,22 +47,30 @@ def home(request):
     }
     return render(request, 'website/home.html', context)
 
+
 def category_products(request, category_id):
     """
-    Display products filtered by a specific category, their images, and average ratings.
+    Display products filtered by a specific category,
+    their images, and average ratings.
     """
     category = get_object_or_404(Category, id=category_id)
     products = Product.objects.filter(category=category)
     product_images = {}
-    
+
     for product in products:
         # Fetch the first image for each product
         first_image = product.images.first()
         product_images[product.id] = first_image
-        
+
         # Calculate average rating for the product
-        average_rating = Review.objects.filter(product=product).aggregate(Avg('stars'))['stars__avg']
-        setattr(product, 'average_rating', average_rating if average_rating else "No reviews")
+        average_rating = (
+            Review.objects.filter(product=product)
+            .aggregate(Avg('stars'))['stars__avg']
+        )
+        setattr(
+            product, 'average_rating',
+            average_rating if average_rating else "No reviews"
+        )
 
     context = {
         'category': category,
@@ -64,43 +80,59 @@ def category_products(request, category_id):
     }
     return render(request, 'website/category_products.html', context)
 
+
 def product_detail(request, product_id):
     """
-    Display detailed information about a specific product, including images and average ratings.
+    Display detailed information about a specific product,
+    including images and average ratings.
     """
     product = get_object_or_404(Product, pk=product_id)
-    
+
     # Fetch images associated with the product
     product_images = ProductImage.objects.filter(product=product)
 
     # Calculate the average rating for the product
-    average_rating = Review.objects.filter(product=product).aggregate(Avg('stars'))['stars__avg']
-    
+    average_rating = (
+        Review.objects.filter(product=product)
+        .aggregate(Avg('stars'))['stars__avg']
+    )
+
     context = {
         'product': product,
         'product_images': product_images,
         'MEDIA_URL': settings.MEDIA_URL,
         'average_rating': average_rating,
     }
-    
+
     return render(request, 'website/product_detail.html', context)
+
 
 def search_results(request):
     """
-    Display products matching the search query, their images, and average ratings.
+    Display products matching the search query,
+    their images, and average ratings.
     """
     query = request.GET.get('q')
-    results = Product.objects.filter(name__icontains=query) | Product.objects.filter(description__icontains=query)
+    results = (
+        Product.objects.filter(name__icontains=query) |
+        Product.objects.filter(description__icontains=query)
+    )
     product_images = {}
-    
+
     for product in results:
         # Fetch the first image for each product
         first_image = product.images.first()
         product_images[product.id] = first_image
-        
+
         # Calculate average rating for the product
-        average_rating = Review.objects.filter(product=product).aggregate(Avg('stars'))['stars__avg']
-        setattr(product, 'average_rating', average_rating if average_rating else "No reviews")
+        average_rating = (
+            Review.objects.filter(product=product)
+            .aggregate(Avg('stars'))['stars__avg']
+        )
+        setattr(
+            product, 'average_rating',
+            average_rating if average_rating else "No reviews"
+        )
 
     context = {
         'query': query,
@@ -110,15 +142,21 @@ def search_results(request):
     }
     return render(request, 'website/search_results.html', context)
 
+
 @staff_member_required
 def add_product(request):
     """
     Allows staff members to add new products and upload images.
-    Handles both GET (display form) and POST (process form submission) requests.
+    Handles both GET (display form) and POST
+    (process form submission) requests.
     """
     if request.method == 'POST':
         form = ProductForm(request.POST)
-        image_formset = ProductImageFormSet(request.POST, request.FILES, queryset=ProductImage.objects.none(), prefix='image')
+        image_formset = ProductImageFormSet(
+            request.POST, request.FILES,
+            queryset=ProductImage.objects.none(),
+            prefix='image'
+        )
         if form.is_valid() and image_formset.is_valid():
             product = form.save(commit=False)
             product.created_by = request.user
@@ -130,20 +168,32 @@ def add_product(request):
             return redirect('product_detail', product.id)
     else:
         form = ProductForm()
-        image_formset = ProductImageFormSet(queryset=ProductImage.objects.none(), prefix='image')
-    return render(request, 'website/add_product.html', {'form': form, 'image_formset': image_formset})
+        image_formset = ProductImageFormSet(
+            queryset=ProductImage.objects.none(),
+            prefix='image'
+        )
+    return render(
+        request, 'website/add_product.html',
+        {'form': form, 'image_formset': image_formset}
+    )
+
 
 @staff_member_required
 def edit_product(request, product_id):
     """
-    Allows staff members to edit existing products and manage associated images.
-    Handles both GET (display form) and POST (process form submission) requests.
+    Allows staff members to edit existing products
+    and manage associated images.
+    Handles both GET (display form)
+    and POST (process form submission) requests.
     """
     product = get_object_or_404(Product, id=product_id)
 
     if request.method == 'POST':
         form = ProductForm(request.POST, instance=product)
-        image_formset = ProductImageFormSet(request.POST, request.FILES, queryset=product.images.all())
+        image_formset = ProductImageFormSet(
+            request.POST, request.FILES,
+            queryset=product.images.all()
+        )
 
         if form.is_valid() and image_formset.is_valid():
             product = form.save()
@@ -165,23 +215,25 @@ def edit_product(request, product_id):
         form = ProductForm(instance=product)
         image_formset = ProductImageFormSet(queryset=product.images.all())
 
-    return render(request, 'website/edit_product.html', {
-        'form': form,
-        'image_formset': image_formset,
-        'product': product,
-    })
+    return render(
+        request, 'website/edit_product.html',
+        {'form': form, 'image_formset': image_formset, 'product': product}
+    )
+
 
 @staff_member_required
 def delete_product(request, product_id):
     """
     Allows staff members to delete products.
-    Handles both GET (display confirmation) and POST (process deletion) requests.
+    Handles both GET (display confirmation)
+    and POST (process deletion) requests.
     """
     product = get_object_or_404(Product, id=product_id)
     if request.method == 'POST':
         product.delete()
         return redirect('home')
     return render(request, 'website/delete_product.html', {'product': product})
+
 
 @login_required
 def order_product(request, product_id):

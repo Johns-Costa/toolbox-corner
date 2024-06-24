@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import MinLengthValidator, MaxLengthValidator
 from django.utils import timezone
 
+
 class Contact(models.Model):
     """Model to store contact form submissions."""
     SUBJECT_CHOICES = [
@@ -13,7 +14,8 @@ class Contact(models.Model):
     ]
 
     subject = models.CharField(max_length=50, choices=SUBJECT_CHOICES)
-    content = models.TextField(validators=[MinLengthValidator(10), MaxLengthValidator(500)])
+    content = models.TextField(validators=[MinLengthValidator(10),
+                               MaxLengthValidator(500)])
     email = models.EmailField()
     created_at = models.DateTimeField(default=timezone.now)
 

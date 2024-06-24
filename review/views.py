@@ -6,6 +6,7 @@ from .forms import ReviewForm
 from website.models import Product
 from django.db.models import Avg
 
+
 @login_required
 def add_review(request, product_id):
     """
@@ -22,7 +23,10 @@ def add_review(request, product_id):
             return redirect('product_detail', product.id)
     else:
         form = ReviewForm()
-    return render(request, 'review/add_review.html', {'form': form, 'product': product})
+    return render(request,
+                  'review/add_review.html',
+                  {'form': form, 'product': product})
+
 
 @login_required
 def edit_review(request, review_id):
@@ -39,7 +43,10 @@ def edit_review(request, review_id):
             return redirect('product_detail', review.product.id)
     else:
         form = ReviewForm(instance=review)
-    return render(request, 'review/edit_review.html', {'form': form, 'review': review})
+    return render(request,
+                  'review/edit_review.html',
+                  {'form': form, 'review': review})
+
 
 @login_required
 def delete_review(request, review_id):
@@ -54,6 +61,7 @@ def delete_review(request, review_id):
         review.delete()
         return redirect('product_detail', product_id)
     return render(request, 'review/delete_review.html', {'review': review})
+
 
 def review_list(request, product_id):
     """

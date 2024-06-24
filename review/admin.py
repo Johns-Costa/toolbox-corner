@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Review
 
+
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
     """Admin configuration for the Review model."""

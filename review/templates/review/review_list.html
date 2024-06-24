@@ -6,39 +6,38 @@
         <div class="col-lg-6">
             <br>
             {% if user.is_authenticated %}
-            <a class="btn btn-info btn-sm" href="{% url 'add_review' product.id %}"> -->Add Review<-- </a>
-                    {% else %}
-                    <p class="my-3"><a href="{% url 'account_login' %}">Log in</a> to add a review.</p>
-                    {% endif %}
-                    <br>
-                    <br>
-                    <h2>Reviews for {{ product.name }}</h2>
-                    <p><i class="fa-solid fa-star" style="color: #ffff00;"></i> {{ average_rating|default:"No reviews" }}/5</p>
-                    <br><br>
-                    {% if reviews %}
-                    <ul>
-                        {% for review in reviews %}
-                        <li>
-                            {{ review.user.username }}: {{ review.stars }} stars
-                            <p>{{ review.content }}</p>
-                            {% if review.user == request.user %}
-                            <a class="btn btn-outline-warning btn-sm" href="{% url 'edit_review' review.id %}">Edit</a>
-                            <a class="btn btn-outline-danger btn-sm"
-                                href="{% url 'delete_review' review.id %}">Delete</a>
+            <a class="btn btn-info btn-sm" href="{% url 'add_review' product.id %}"> Add Review </a>
+            {% else %}
+            <p class="my-3"><a href="{% url 'account_login' %}">Log in</a> to add a review.</p>
+            {% endif %}
+            <br>
+            <br>
+            <h2>Reviews for {{ product.name }}</h2>
+            <p><i class="fa-solid fa-star" style="color: #ffff00;"></i> {{ average_rating|default:"No reviews" }}/5</p>
+            <br><br>
+            {% if reviews %}
+            <ul>
+                {% for review in reviews %}
+                <li>
+                    {{ review.user.username }}: {{ review.stars }} stars
+                    <p>{{ review.content }}</p>
+                    {% if review.user == request.user %}
+                    <a class="btn btn-outline-warning btn-sm" href="{% url 'edit_review' review.id %}">Edit</a>
+                    <a class="btn btn-outline-danger btn-sm" href="{% url 'delete_review' review.id %}">Delete</a>
 
-                            {% endif %}
-                        </li>
-                        <hr>
-                        {% endfor %}
-                    </ul>
-                    {% else %}
-                    {% if user.is_authenticated %}
-                    <p class="logo-font my-1">No Reviews yet. Be the first to <a
-                            href="{% url 'add_review' product.id %}"> Add a Review</a>!</p>
-                    {% else %}
-                    <p class="my-3">No Reviews yet.<a href="{% url 'account_login' %}"> Log in</a> to add a review.</p>
                     {% endif %}
-                    {% endif %}
+                    <hr>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            {% if user.is_authenticated %}
+            <p class="logo-font my-1">No Reviews yet. Be the first to <a href="{% url 'add_review' product.id %}"> Add a
+                    Review</a>!</p>
+            {% else %}
+            <p class="my-3">No Reviews yet.<a href="{% url 'account_login' %}"> Log in</a> to add a review.</p>
+            {% endif %}
+            {% endif %}
         </div>
     </div>
 </div>

@@ -11,7 +11,7 @@
         content="Discover Toolbox Corner, your one-stop shop for tools and equipment. Explore a wide range of products, from power tools to hand tools, all at competitive prices.">
     <meta name="keywords"
         content="tools, equipment, power tools, hand tools, DIY tools, professional tools, construction tools, woodworking tools, home improvement, hardware store, online shopping">
-    <meta name="author" content="João Campos Costa" />
+    <meta name="author" content="João Campos Costa">
     <!-- Favincon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
@@ -97,11 +97,11 @@
                             <a class="nav-link font-weight-bold" href="{% url 'contact' %}">Contact Us</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 My Account
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
                                 {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
                                 <li class="nav-item">

@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect, reverse
+from django.shortcuts import get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -11,6 +12,7 @@ from bag.contexts import bag_contents
 
 import stripe
 import json
+
 
 @require_POST
 def cache_checkout_data(request):
@@ -27,12 +29,15 @@ def cache_checkout_data(request):
         })
         return HttpResponse(status=200)
     except Exception as e:
-        messages.error(request, 'Sorry, your payment cannot be processed right now. Please try again later.')
+        messages.error(request,
+                       'Sorry, your payment cannot be processed right now.'
+                       'Please try again later.')
         return HttpResponse(content=e, status=400)
 
 
 # Set up logger
 logger = logging.getLogger(__name__)
+
 
 def checkout(request):
     """
@@ -74,13 +79,15 @@ def checkout(request):
                             total += quantity * product.price
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
+                        "One of the products in your bag wasn't"
+                        "found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
-            
-            order.total = total  # Assuming you have a total field in your Order model
+
+            # Assuming you have a total field in your Order model
+            order.total = total
             order.save()
 
             for item_id, item_data in bag.items():
@@ -106,23 +113,27 @@ def checkout(request):
             try:
                 stripe.api_key = stripe_secret_key
                 intent = stripe.PaymentIntent.create(
-                    amount=round(total * 100),  # Calculate the amount from the total
+                    amount=round(total * 100),
                     currency=settings.STRIPE_CURRENCY,
                 )
             except Exception as e:
                 logger.error(f'Error connecting to Stripe: {e}')
-                messages.error(request, 'There was an error connecting to Stripe. Please try again later.')
+                messages.error(request,
+                               'There was an error connecting to Stripe.'
+                               'Please try again later.')
                 order.delete()
                 return redirect(reverse('view_bag'))
 
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success',
+                            args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else:
         bag = request.session.get('bag', {})
         if not bag:
-            messages.error(request, "There's nothing in your bag at the moment")
+            messages.error(request,
+                           "There's nothing in your bag at the moment")
             return redirect(reverse('products'))
 
         current_bag = bag_contents(request)
@@ -136,7 +147,9 @@ def checkout(request):
             )
         except Exception as e:
             logger.error(f'Error creating Stripe PaymentIntent: {e}')
-            messages.error(request, 'There was an error connecting to Stripe. Please try again later.')
+            messages.error(request,
+                           'There was an error connecting to Stripe.'
+                           'Please try again later.')
             return redirect(reverse('view_bag'))
 
         order_form = OrderForm()
@@ -149,7 +162,8 @@ def checkout(request):
     context = {
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
-        'client_secret': intent.client_secret if intent else '',  # Safely handle if intent is None
+        'client_secret': intent.client_secret if intent else '',
+        # Safely handle if intent is None
     }
 
     return render(request, template, context)

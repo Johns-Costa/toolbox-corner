@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
-from website.models import Product 
+from website.models import Product
+
 
 class Review(models.Model):
     """
@@ -9,7 +10,8 @@ class Review(models.Model):
     STAR_CHOICES = [(i, str(i)) for i in range(6)]
 
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
     content = models.TextField(max_length=500, blank=True)
     stars = models.IntegerField(choices=STAR_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -26,3 +28,4 @@ class Review(models.Model):
         String representation of the review.
         """
         return f'Review for {self.product.name} by {self.user.username}'
+        

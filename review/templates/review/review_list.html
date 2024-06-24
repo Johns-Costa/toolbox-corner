@@ -13,7 +13,7 @@
                     <br>
                     <br>
                     <h2>Reviews for {{ product.name }}</h2>
-                    <p>Average Rating: {{ average_rating|default:"No reviews" }}/5</p>
+                    <p><i class="fa-solid fa-star" style="color: #ffff00;"></i> {{ average_rating|default:"No reviews" }}/5</p>
                     <br><br>
                     {% if reviews %}
                     <ul>

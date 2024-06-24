@@ -1,11 +1,15 @@
 #  Toolbox corner - E-commerce website
 
-**Deployed website: [Link to website](https://toolbox-corner-c9446b25bd36.herokuapp.com/)**
+Live Version: [Toolbox Corner](https://toolbox-corner-c9446b25bd36.herokuapp.com/)
 
+
+Repository: [GitHub Repo](https://github.com/Johns-Costa/toolbox-corner)
+
+The app is developed by [João Costa](https://github.com/Johns-Costa).
 
 ![Main image](documentation/main_image.png)
 
-**Card number for payment testing: 4242424242424242**
+
 ## About
 
 "Toolbox corner" is an e-commerce website that allows customers to buy various products related to Do It Yourself (DIY) projects. It has a login system, a shopping Bag, a checkout system, and a payment system. This website has a message system that informs users when a product is added/removed from their bag.
@@ -77,7 +81,7 @@ This website is intended for people interested in purchasing DIY products online
 
 Toolbox Corner operates on a B2C (Business-to-Consumer) model, focusing on individual transactions by selling products directly to customers.
 
-## Customer Persona Summary
+### Customer Persona Summary
 
 Toolbox Corner caters to a diverse group of individuals with varying needs and preferences. The target audience includes:
 
@@ -86,7 +90,7 @@ Toolbox Corner caters to a diverse group of individuals with varying needs and p
 - **Needs and Wants**: Customers seek high-quality tools, detailed product information, user-friendly browsing, and efficient service.
 - **Experience Focus**: Emphasis on a seamless user experience with easy navigation, comprehensive product details, and excellent customer service to help customers find the right tools quickly and efficiently.
 
-## Store Personnel Persona Summary
+### Store Personnel Persona Summary
 
 Toolbox Corner is designed for companies of all sizes interested in selling tools online. The platform supports potential growth with comprehensive functionalities for store personnel, including:
 
@@ -94,7 +98,7 @@ Toolbox Corner is designed for companies of all sizes interested in selling tool
 - **Personnel Functionality**: Full control over products add/edit and delete.
 - **User Roles**: Admin and staff member.
 
-## Strategy Trade-Off
+### Strategy Trade-Off
 
 Toolbox Corner is a competitive online store due to its diverse product offerings, affordability, and quality. Key strategic advantages include:
 
@@ -112,7 +116,7 @@ Toolbox Corner is a competitive online store due to its diverse product offering
 
 ### 1. Newsletters
 
-Toolbox Corner utilizes Mailchimp for creating and sending newsletters to all customers. The Admin can design a newsletter and distribute it efficiently through Mailchimp, which also handles sending newsletters about new products and eventual sales.
+Toolbox Corner utilizes Mailchimp for creating and sending newsletters to all customers that subscribe. The Admin can design a newsletter and distribute it efficiently through Mailchimp, which also handles sending newsletters about new products and eventual sales.
 
 ![Newsletter](documentation/web_marketing/newsletter.png)
 
@@ -121,13 +125,13 @@ Toolbox Corner utilizes Mailchimp for creating and sending newsletters to all cu
 
 Facebook is crucial for Toolbox Corner to reach its customers effectively. The platform has a broad user base, providing excellent coverage among potential customers who prefer online shopping. The Toolbox Corner Facebook page is used for marketing purposes, posting adverts, engaging content, and interacting with users.
 
-[Toolbox Corner Facebook Page](documentation/web_marketing/toolbox_corner_facebook_mockup.pdf)
+![Toolbox Corner Facebook Page](documentation/web_marketing/toolbox_corner_facebook_mockup.png)
 
 ### 3. Instagram
 
 Instagram is essential for attracting a younger demographic, with 90% of its users being under 35 years old. Toolbox Corner's Instagram page is leveraged for marketing purposes, including posting adverts, interesting content, and engaging users.
 
-[Toolbox Corner Instagram Page](documentation/web_marketing/toolbox_corner_instagram_mockup.pdf)
+![Toolbox Corner Instagram Page](documentation/web_marketing/toolbox_corner_instagram_mockup.png)
 
 ---
 
@@ -247,11 +251,9 @@ The Logo is in [Roboto](https://fonts.google.com/?query=roboto) font and the bod
 
   ![GitHub Project Management](documentation/agile/github_project_management.png)
 
-GitHub Project Management was used to manage the project. If it hadn't been for the GitHub project management, I wouldn't have been able to manage the development of the application. It helped me to prioritize the tasks and to keep track of my progress.
+GitHub Project Management played a crucial role in managing this project. Without it, overseeing the application's development would have been challenging. It enabled me to prioritize tasks effectively and monitor my progress throughout the project.
 
-![GitHub Project Management](documentation/agile/kanban.png)
-
-![GitHub Project Management](documentation/agile/tasks.png)
+![GitHub Project Management](documentation/agile/user_story.png)
 
 ---
 
@@ -385,10 +387,12 @@ Please refer to the [DEPLOYMENT.md](DEPLOYMENT.md) file for all deployment-relat
 
 - [GitHub](https://github.com/) for giving the idea of the project's design.
 - [Django](https://www.djangoproject.com/) for the framework.
-- [ElephantSQL](https://www.elephantsql.com/): for the free hosting of the database.
+- [Neon](https://neon.tech/): for the free hosting of the database.
 - [Font awesome](https://fontawesome.com/): for the free access to icons.
 - [Heroku](https://www.heroku.com/): for the free hosting of the website.
 - [Postgresql](https://www.postgresql.org/): for providing a free database.
+- [Unsplash](https://unsplash.com/): for providing free products' images to fill out the store.
+- [Pixabay](https://pixabay.com/): for providing free products' images to fill out the store.
 
 - The footer was based on my [Thread and rope project](https://github.com/Johns-Costa/threadandrope).
 

@@ -9,128 +9,233 @@
 
 <url>
   <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/products</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/contact/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/accounts/signup/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/accounts/login/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/products/category/3/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/products/category/4/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/products/category/5/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/products/category/6/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/11/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
   <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/1/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/12/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/13/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/3/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/14/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/15/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/2/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/9/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/10/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/17/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/18/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/19/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/20/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/21/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/22/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/23/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/products/product/24/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/accounts/password/reset/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/11/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
   <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/1/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/12/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/13/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/3/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/14/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/15/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/2/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/accounts/login/?next=/reviews/add/1/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
-  <priority>0.41</priority>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/9/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/accounts/login/?next=/reviews/add/3/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
-  <priority>0.41</priority>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/10/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/accounts/login/?next=/reviews/add/2/</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
-  <priority>0.41</priority>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/17/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/accounts/signup/?next=%2Freviews%2Fadd%2F1%2F</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
-  <priority>0.33</priority>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/18/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/accounts/signup/?next=%2Freviews%2Fadd%2F3%2F</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
-  <priority>0.33</priority>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/19/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/accounts/signup/?next=%2Freviews%2Fadd%2F2%2F</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
-  <priority>0.33</priority>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/20/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/accounts/login/?next=%2Freviews%2Fadd%2F1%2F</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
-  <priority>0.26</priority>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/21/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/accounts/login/?next=%2Freviews%2Fadd%2F3%2F</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
-  <priority>0.26</priority>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/22/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/accounts/login/?next=%2Freviews%2Fadd%2F2%2F</loc>
-  <lastmod>2024-06-22T16:58:52+00:00</lastmod>
-  <priority>0.26</priority>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/23/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://toolbox-corner-c9446b25bd36.herokuapp.com/reviews/product/24/</loc>
+  <lastmod>2024-06-25T08:01:35+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 
 

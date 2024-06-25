@@ -181,6 +181,7 @@ Future plans include developing a flexible delivery cost calculation system cons
     + [Django](https://www.djangoproject.com/): python framework used to create all the logic.
     + [jQuery](https://jquery.com/): was used to control click events and sending AJAX requests.
     + [jQuery User Interface](https://jqueryui.com/) was used to create interactive elements.
+    + [Bootsrap](https://getbootstrap.com/) was used to make the site appealing and responive.
 
 - ### Databases:
 
@@ -201,14 +202,11 @@ Future plans include developing a flexible delivery cost calculation system cons
     + [VSCode](https://code.visualstudio.com/): the IDE used to develop the website.
     + [Chrome DevTools](https://developer.chrome.com/docs/devtools/open/): was used to debug the website.
     + [Font Awesome](https://fontawesome.com/): was used to create the icons used in the website.
-    + [Draw.io](https://www.lucidchart.com/) was used to make a flowchart for the README file.
     + [W3C Validator](https://validator.w3.org/): was used to validate HTML5 code for the website.
     + [W3C CSS validator](https://jigsaw.w3.org/css-validator/): was used to validate CSS code for the website.
     + [JShint](https://jshint.com/): was used to validate JS code for the website.
     + [PEP8](https://pep8.org/): was used to validate Python code for the website.
-    + [geonames](https://www.geonames.org/) was used to get the country and city names.
-    + [stripe](https://stripe.com/): was used to create the payment system.
-    + [birme.net](https://www.birme.net/): was used to crop and center unsplash images.
+    + [Stripe](https://stripe.com/): was used to create the payment system.
     + [Sitemap Generator](https://www.xml-sitemaps.com/) was used to create the sitemap.xml file.
 
 ---
@@ -251,7 +249,7 @@ The Logo is in [Roboto](https://fonts.google.com/?query=roboto) font and the bod
 
   ![GitHub Project Management](documentation/agile/github_project_management.png)
 
-GitHub Project Management played a crucial role in managing this project. Without it, overseeing the application's development would have been challenging. It enabled me to prioritize tasks effectively and monitor my progress throughout the project.
+GitHub Project Management played a crucial role in managing this project. Without it, overseeing the application's development would have been challenging. It enabled me to prioritize user stories effectively and monitor my progress throughout the project.
 
 ![GitHub Project Management](documentation/agile/user_story.png)
 
@@ -395,6 +393,7 @@ Please refer to the [DEPLOYMENT.md](DEPLOYMENT.md) file for all deployment-relat
 - [Pixabay](https://pixabay.com/): for providing free products' images to fill out the store.
 
 - The footer was based on my [Thread and rope project](https://github.com/Johns-Costa/threadandrope).
+- Tha bag and the checkout apps were based on the walkthrough [Boutique ado](https://github.com/Johns-Costa/boutique_ado_v1) project in order to make sure the stripe payments would go through easily
 
 
 ---

@@ -187,6 +187,7 @@ There are no current known bugs
 There were plenty of bugs during the development process since this project was a learning platform for me. This allowed me to improve my skills and knowledge significantly.
 
 However, I tried to solve the majority of them. One bug that took me a while to figure out was that I wasn't being able to pass some js code. It turned out to be the fact that I had accidentaly deleted the js bock from the base.html
+Another bug was that the app was throwing an error if a user tried to add a second review to the same product. Only one review per product per user is allowed. The views add to be fixed and an if statement was added with error messages to prevent a user from trying to add a second review.
 
 
 ---

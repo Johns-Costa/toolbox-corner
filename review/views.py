@@ -5,14 +5,24 @@ from .models import Review
 from .forms import ReviewForm
 from website.models import Product
 from django.db.models import Avg
+from django.contrib import messages
 
 
 @login_required
 def add_review(request, product_id):
     """
     Handles the submission of a new review for a given product.
+    Ensures that a user can only submit one review per product.
     """
     product = get_object_or_404(Product, id=product_id)
+
+    # Check if the user has already reviewed this product
+    existing_review = Review.objects.filter(product=product,
+                                            user=request.user).first()
+    if existing_review:
+        messages.error(request, 'You have already reviewed this product.')
+        return redirect('product_detail', product.id)
+
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
@@ -20,9 +30,11 @@ def add_review(request, product_id):
             review.product = product
             review.user = request.user
             review.save()
+            messages.success(request, 'Review added successfully!')
             return redirect('product_detail', product.id)
     else:
         form = ReviewForm()
+
     return render(request,
                   'review/add_review.html',
                   {'form': form, 'product': product})

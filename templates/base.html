@@ -103,7 +103,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
                                 {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
+                                {% if request.user.is_superuser or request.user.is_staff %}
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'add_product' %}">Add Product</a>
                                 </li>

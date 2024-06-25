@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="image-container my-5 h-100 d-inline-block">
                     {% if product.images.all %}
-                    <img id="main-image" class="card-img-top img-fluid  h-50" src="{{ product.images.first.image.url }}"
+                    <img id="main-image" class="card-img-top img-fluid h-50" src="{{ product.images.first.image.url }}"
                         alt="{{ image.alt }}">
                     {% else %}
                     <img id="main-image" class="card-img-top img-fluid" src="{% static 'images/noimage.png' %}"
@@ -31,6 +31,7 @@
         <div class="col-md-6">
             <div class="product-details-container mt-1">
                 <h2>{{ product.name }}</h2>
+                <p><strong>Price:</strong> ${{ product.price }}</p>
                 <div>
                     {% if user.is_staff %}
                     <a class="btn btn-outline-info btn-sm mb-3" href="{% url 'edit_product' product.id %}">Edit
